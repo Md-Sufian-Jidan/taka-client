@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { MdOutlineUpcoming } from 'react-icons/md'
 import { FaRegNoteSticky } from 'react-icons/fa6';
 
-const UserRoute = () => {
+const AgentRoute = () => {
     return (
         <nav>
             {/* Statistics */}
@@ -28,7 +28,7 @@ const UserRoute = () => {
                 }
             >
                 <MdOutlineUpcoming className='w-5 h-5' />
-                <span className='mx-4 font-medium'>Cash Out</span>
+                <span className='mx-4 font-medium'>Account management</span>
             </NavLink>
             {/* My Test Result */}
             <NavLink
@@ -46,4 +46,4 @@ const UserRoute = () => {
     );
 };
 
-export default UserRoute;
+export default AgentRoute;

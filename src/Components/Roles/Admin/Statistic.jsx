@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet-async";
 import { FaUsers } from "react-icons/fa";
 import { SlBookOpen } from "react-icons/sl";
 import AdminChart from "../../Charts/AdminChart";
+import { useState } from "react";
 // import UseStatus from '../../../Hooks/useStatus'
 
 const Statistic = () => {
@@ -12,6 +13,7 @@ const Statistic = () => {
     const axiosSecure = useAxiosSecure();
     // const [status] = UseStatus();
     // console.log(status);
+    const [isLoading, setIsLoading] = useState(false)
 
     const { data: stat } = useQuery({
         queryKey: ['admin-stat'],
@@ -29,6 +31,9 @@ const Statistic = () => {
             return data;
         },
     });
+
+    if (isLoading) return <div className='text-5xl my-20'>Loading...</div>
+
     return (
         <>
             <Helmet>

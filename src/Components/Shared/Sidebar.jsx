@@ -9,6 +9,7 @@ import { CgProfile } from 'react-icons/cg'
 import useAuth from '../../Hooks/useAuth'
 import AdminRoute from '../Roles/Admin/AdminRoute'
 import UserRoute from '../Roles/User/User'
+import AgentRoute from '../Roles/Agent/AgentRoute'
 // import useAdmin from '../../../Hooks/useAdmin'
 // import useRole from '../../../Hooks/useRole'
 
@@ -23,7 +24,7 @@ const Sidebar = () => {
     // const [isAdmin] = useAdmin();
     // console.log(isAdmin);
 
-    const isAdmin = false;
+    const role = 'user';
 
     // Sidebar Responsive Handler
     const handleToggle = () => {
@@ -80,9 +81,12 @@ const Sidebar = () => {
                     {/* Nav Items */}
                     <div className='flex flex-col justify-between flex-1 mt-6'>
                         {/*  Menu Items */}
-                        {isAdmin ? <AdminRoute /> :
+                        {/* {isAdmin ? <AdminRoute /> :
                             user?.status === 'blocked' ? toast.error('You Are Blocked By Admin')
-                                : <UserRoute />}
+                                : <UserRoute />} */}
+                                {role === 'admin' && <AdminRoute />}
+                                {role === 'agent' && <AgentRoute />}
+                                {role === 'user' && <UserRoute />}
 
                     </div>
                 </div>
@@ -92,7 +96,7 @@ const Sidebar = () => {
 
                     {/* Profile Menu */}
                     <NavLink
-                        to='/dashboard/profile'
+                        to='/profile'
                         className={({ isActive }) =>
                             `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
                             }`

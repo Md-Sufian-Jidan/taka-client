@@ -98,7 +98,8 @@ const AdminChart = ({ chartData }) => {
             <BarChart
                 width={1000}
                 height={300}
-                data={mostBooked}
+                // data={mostBooked}
+                data={data}
                 margin={{
                     top: 20,
                     right: 30,
