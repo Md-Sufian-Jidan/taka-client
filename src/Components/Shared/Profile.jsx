@@ -37,7 +37,8 @@ const Profile = () => {
                 <div className='bg-white shadow-lg rounded-2xl w-3/5'>
                     <img
                         alt='profile'
-                        src={user?.photoURL}
+                        // https://i.ibb.co/S3DXRY6/profile.jpg
+                        src={`${user?.photoURL || 'https://i.ibb.co/S3DXRY6/profile.jpg'}`}
                         className='w-full mb-4 rounded-t-lg h-36'
                     />
                     <div className='flex flex-col items-center justify-center p-4 -mt-16'>

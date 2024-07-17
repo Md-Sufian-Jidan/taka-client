@@ -4,8 +4,10 @@ import useAuth from '../../Hooks/useAuth';
 import { useForm } from 'react-hook-form';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import toast from 'react-hot-toast';
+import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 
 const Login = () => {
+    const [loading, setLoading] = useState(false);
     // auto redirect
     const location = useLocation();
     const navigate = useNavigate();
@@ -19,16 +21,19 @@ const Login = () => {
 
     const onSubmit = (data) => {
         const { email, password } = data;
+        setLoading(true);
         console.log(email, password);
         signInUser(email, password)
             .then((result) => {
                 toast.success('User Login Successful');
                 console.log(result.user);
                 navigate('/');
+                setLoading(false);
             })
             .catch((error) => {
                 toast.error('check your email and password and try again');
                 console.log(error.message);
+                setLoading(false);
             })
     };
 
@@ -60,7 +65,10 @@ const Login = () => {
                     </label>
                 </div>
                 <div className="form-control my-3" data-aos="fade-right" data-aos-duration="2000">
-                    <button className="btn bg-[#adf010]">Login</button>
+                    {loading ? <button className="btn bg-violet-700/60">
+                        <AiOutlineLoading3Quarters className="animate-spin text-xl" />
+                    </button> :
+                        <button className="btn bg-[#adf010]">Login</button>}
                 </div>
                 <p>Do not Have An Account? <Link className="underline" to="/register">Register One</Link></p>
             </form>

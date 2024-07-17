@@ -38,7 +38,7 @@ const Register = () => {
         createUser(email, password)
             .then(async (result) => {
                 console.log(result.user);
-                const userInfo = { name, email, phone, password };
+                const userInfo = { name, email, phone, password, role: "user" };
                 console.log('saving start');
                 await axiosPublic.post('/save-user', userInfo)
                     .then((res) => {

@@ -61,7 +61,7 @@ const UpdateUserProfile = ({ closeModal, isOpen, bookingInfo }) => {
                             leaveFrom='opacity-100 scale-100'
                             leaveTo='opacity-0 scale-95'
                         >
-                            <DialogPanel className='w-full max-w-md transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all bg-emerald-400'>
+                            <DialogPanel className='w-full max-w-md transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all bg-gradient-to-tr from-emerald-400 to-orange-400'>
                                 <DialogTitle
                                     as='h3'
                                     className='text-lg font-medium text-center leading-6 text-gray-900'
