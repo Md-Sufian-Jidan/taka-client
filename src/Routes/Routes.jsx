@@ -3,6 +3,7 @@ import Dashboard from "../Layouts/Dashboard";
 import Login from "../Components/Authentication/Login";
 import Register from "../Components/Authentication/Register";
 import PrivateRoute from "../Contexts/PrivateRoute";
+import Profile from "../Components/Shared/Profile";
 
 const router = createBrowserRouter([
     {
@@ -10,8 +11,8 @@ const router = createBrowserRouter([
         element: <PrivateRoute><Dashboard /></PrivateRoute>,
         children: [
             {
-                path: '/route',
-                element: <div>route</div>
+                path: 'profile',
+                element: <Profile />
             }
         ]
     },

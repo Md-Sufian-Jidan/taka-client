@@ -24,7 +24,7 @@ const Login = () => {
             .then((result) => {
                 toast.success('User Login Successful');
                 console.log(result.user);
-                navigate(location?.state ? location.state : '/');
+                navigate('/');
             })
             .catch((error) => {
                 toast.error('check your email and password and try again');
